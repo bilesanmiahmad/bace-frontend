@@ -27,7 +27,10 @@ const SignIn = (props) => {
       })
       .then(function (response) {
        if(response.status === 200){
-         window.location.href = "/dashboard"
+           const {token} = response.data
+           localStorage.setItem('token', token);
+        window.location.href = "/dashboard"
+        console.log(response)
        }
       })
       .catch(function (error) {
